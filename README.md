@@ -1,4 +1,4 @@
-# 📊 Plant Co. Performance Report 2024 – Power BI Dashboard
+# 📊 Plant Co. Performance Report – Power BI Dashboard
 
 This Power BI project provides a high-level overview of **Plant Co.'s** sales performance in 2024. It highlights key performance indicators (KPIs), tracks sales trends, and allows stakeholders to explore profitability, customer segments, and underperforming regions interactively.
 
