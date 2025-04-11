@@ -4,12 +4,6 @@ This Power BI project provides a high-level overview of **Plant Co.'s** sales pe
 
 ---
 
-## 🖼️ Dashboard Preview
-
-![Sales Performance Dashboard](./image.png)
-
----
-
 ## 🔍 Key Insights
 
 - 📈 **Year-to-Date (YTD) Sales** and **Previous Year (PYTD)** tracking
