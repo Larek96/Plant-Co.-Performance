@@ -1,30 +1,51 @@
-# 📈 Performance Report Dashboard
+# 📊 Plant Co. Performance Report 2024 – Power BI Dashboard
 
-This Power BI project presents an interactive performance dashboard designed to track and visualize key business metrics. The report offers actionable insights to support decision-making across various performance dimensions such as sales, productivity, and operational efficiency.
+This Power BI project provides a high-level overview of **Plant Co.'s** sales performance in 2024. It highlights key performance indicators (KPIs), tracks sales trends, and allows stakeholders to explore profitability, customer segments, and underperforming regions interactively.
 
-## 📊 Key Features
+---
 
-- **KPI Overview**: High-level view of core performance indicators  
-- **Trend Analysis**: Time-series visualizations for performance tracking  
-- **Segmented Views**: Breakdowns by department, region, or category  
-- **Interactive Filters**: Drill-down capabilities for in-depth exploration  
-- **Dynamic Visuals**: Custom visuals for clarity and impact  
+## 🖼️ Dashboard Preview
 
-## 🚀 How to Get Started
+![Sales Performance Dashboard](./image.png)
 
-1. Open `Performance Report.pbix` in Power BI Desktop.
-2. Review report pages and use slicers/filters to interact with the data.
-3. If needed, update the data source path under **Transform Data** → **Data source settings**.
+---
 
-## 📌 Highlights
+## 🔍 Key Insights
 
-- Tracks performance across time periods and categories  
-- Identifies strengths and bottlenecks in operations  
-- Provides a foundation for monthly/quarterly business reviews  
-- User-friendly design for non-technical stakeholders  
+- 📈 **Year-to-Date (YTD) Sales** and **Previous Year (PYTD)** tracking
+- 🔁 **YTD vs PYTD Difference** visualized through bar and line charts
+- 🌍 **Bottom 10 Countries by Sales Decline**
+- 🧱 **Profitability Analysis** by **GP% (Gross Profit Percentage)**
+- 🎯 **Product Type Segmentation** (Indoor, Outdoor, Landscape)
 
-## 🧠 Built With
+---
 
-- Power BI Desktop
-- DAX for calculated measures
-- Power Query for data transformation
+## 💡 Core DAX Measures
+
+Here are the key DAX measures powering the dashboard:
+
+```DAX
+-- Total Sales YTD
+Sales YTD = 
+CALCULATE(
+    SUM('Sales'[Amount]),
+    DATESYTD('Date'[Date])
+)
+
+-- Total Sales PYTD (Previous Year-To-Date)
+Sales PYTD = 
+CALCULATE(
+    [Sales YTD],
+    SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+-- YTD vs PYTD Difference
+Sales YTD vs PYTD = 
+[Sales YTD] - [Sales PYTD]
+
+-- Gross Profit Percentage (GP%)
+GP% = 
+DIVIDE(
+    SUM('Sales'[Gross Profit]),
+    SUM('Sales'[Amount])
+) * 100
